@@ -1,0 +1,49 @@
+/* Variables start */
+
+$primary-color: #e2e2e2 !default;
+$secondary-color: #f3f9ff;
+$green-color: #a7c93d;
+$orange-color: #ff6b00;
+$show-background-image: true;
+$top-background-image: url(../img/top-background-img.png);
+$bottom-background-image: url(../img/bottom-background-image.png);
+
+$background-opacity: 0.5;
+
+/* Variables end */
+
+// @mixin background {
+//   @if $show-background-image {
+//     background: linear-gradient(
+//       110deg,
+//       rgba($secondary-color, $background-opacity) 0%,
+//       rgba($secondary-color, 0.95) 50%,
+//       rgba($secondary-color, 1) 100%
+//     );
+//   }
+// }
+
+// Media Query Mixins
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (min-width: 1171px) {
+    @content;
+  }
+}
