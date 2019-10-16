@@ -484,6 +484,9 @@ body {
   position: absolute;
   bottom: 0; }
 
+.hide {
+  opacity: 0; }
+
 /* HEADER start*/
 .header {
   left: 100px;
@@ -544,13 +547,33 @@ body {
       width: 370px;
       height: 553px;
       margin-right: 12px;
-      margin-bottom: 180px;
-      border: 3px solid red; }
+      margin-bottom: 180px; }
       .header__content .block__img-legs {
         position: absolute;
-        top: -216px;
+        top: -190px;
         left: -354px;
         z-index: 1; }
+    .header__content .block__img::before,
+    .header__content .block__img::after {
+      content: "299 ₽";
+      position: relative;
+      width: 100px;
+      height: 40px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 34px;
+      text-align: center;
+      background: #ff6b00;
+      z-index: 2;
+      top: 353px;
+      left: 149px;
+      padding: 0 10px; }
+    .header__content .block__img::after {
+      top: 484px;
+      left: 142px;
+      background: #a7c93d; }
     .header__content .description {
       margin: 0 33px 0 16px; }
       .header__content .description__title {
@@ -627,6 +650,12 @@ body {
           .header__content .description__list .description__item-text .text-underline-green::after {
             width: 44px;
             background-color: #a7c93d; }
+
+@keyframes visible {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
     .header__content .form {
       width: 270px;
       height: 553px;
@@ -639,7 +668,9 @@ body {
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: center; }
+      align-items: center;
+      animation-duration: 5s;
+      animation-name: visible; }
       .header__content .form__arrow-img {
         position: absolute;
         top: 30%;
@@ -1207,10 +1238,6 @@ main {
         left: 0; }
 
 /* FOOTER end*/
-@media screen and (max-width: 768px) {
-  .wrapper {
-    max-width: 500px; } }
-
 @media screen and (min-width: 320px) and (max-width: 1170px) {
   .wrapper-bg {
     position: relative;
@@ -1336,10 +1363,10 @@ main {
           right: 140px; }
     .main__about-statistics {
       margin: 0 10px;
-      padding: 30px 5px;
-      width: 300px; }
+      padding: 30px 10px;
+      width: 500px; }
     .main__about-statistics::after {
-      left: 20%; }
+      left: 165px; }
   .main__info1 {
     display: block;
     position: relative; }
@@ -1409,7 +1436,6 @@ main {
     width: auto;
     height: 500px; }
   .header__info .header__brand {
-    border: 3px solid red;
     width: 80vw;
     height: auto;
     text-align: center;

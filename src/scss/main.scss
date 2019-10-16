@@ -21,7 +21,6 @@ body {
   max-width: 2560px;
   margin: 0 auto;
   min-width: 100%;
-  // height: 100%;
   overflow: hidden;
 }
 
@@ -41,6 +40,12 @@ body {
   position: absolute;
   bottom: 0;
 }
+
+.hide {
+  // visibility: hidden;
+  opacity: 0;
+}
+
 /* HEADER start*/
 .header {
   left: 100px;
@@ -118,20 +123,44 @@ body {
     z-index: 2;
 
     .block__img {
-      // position: relative;
       width: 370px;
       height: 553px;
       margin-right: 12px;
       margin-bottom: 180px;
-      border: 3px solid red;
 
       &-legs {
         position: absolute;
-        top: -216px;
+        top: -190px;
         left: -354px;
         z-index: 1;
       }
     }
+
+    .block__img::before,
+    .block__img::after {
+      content: "299 ₽";
+      position: relative;
+
+      width: 100px;
+      height: 40px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 34px;
+      text-align: center;
+      background: $orange-color;
+      z-index: 2;
+      top: 353px;
+      left: 149px;
+      padding: 0 10px;
+    }
+    .block__img::after {
+      top: 484px;
+      left: 142px;
+      background: $green-color;
+    }
+
     .description {
       margin: 0 33px 0 16px;
 
@@ -243,6 +272,16 @@ body {
       }
     }
 
+    @keyframes visible {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
     .form {
       width: 270px;
       height: 553px;
@@ -256,6 +295,9 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      animation-duration: 5s;
+      animation-name: visible;
 
       &__arrow-img {
         position: absolute;
@@ -306,7 +348,6 @@ body {
         text-align: center;
         align-items: center;
         margin-bottom: 15px;
-        // width: 211px;
 
         .old-price {
           &-sm {
@@ -611,7 +652,6 @@ main {
 
 .main__info1 {
   position: relative;
-  // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   background-image: linear-gradient(
     to left,
     #e9f5f7 0%,
@@ -1037,417 +1077,3 @@ main {
 /* FOOTER end*/
 
 @import "./_mobile";
-
-@media screen and (min-width: 320px) and (max-width: 1170px) {
-  .wrapper-bg {
-    position: relative;
-    background: linear-gradient(
-      110deg,
-      rgba($secondary-color, $background-opacity) 0%,
-      rgba($secondary-color, 0.95) 50%,
-      rgba($secondary-color, 1) 60%,
-      rgba($secondary-color, 1) 100%
-    );
-
-    .img-wave-top {
-      width: auto;
-      height: auto;
-      bottom: -160px;
-    }
-  }
-
-  .wrapper-bg::before {
-    position: absolute;
-    content: url(../img/bottom-background-image.png);
-    top: 220px;
-    right: 0;
-    max-width: 500px;
-  }
-  .wrapper-bg::after {
-    position: absolute;
-    content: url(../img/main/main-wave-top-icon.png);
-    top: 385px;
-    right: 0;
-    max-width: 500px;
-    z-index: 0;
-  }
-
-  .header {
-    left: 0;
-    &__info {
-      padding-top: 0;
-      flex-direction: column;
-
-      &-img {
-        top: 0;
-        left: 0;
-        z-index: -2;
-        img {
-          width: 500px;
-          height: 300px;
-        }
-      }
-
-      .header__brand {
-        padding-right: 0px;
-        display: block;
-        &-icon {
-          width: 100px;
-        }
-        &-name {
-          font-size: 36px;
-        }
-      }
-      .header__brand::before {
-        content: "";
-        display: block;
-        top: -10px;
-        margin: 0 auto;
-        width: 288px;
-        height: 352px;
-        background: url(../img/header/pack-images-full.png) no-repeat top -20px center;
-        background-size: 288px 352px;
-      }
-    }
-
-    &__list {
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 20px;
-      z-index: 1;
-
-      .header__item {
-        padding-bottom: 20px;
-        margin: 0;
-      }
-    }
-    &__content {
-      // margin-top: 20px 0 0 0;
-      .block__img {
-        display: none;
-        position: static;
-        width: 0;
-        height: 0;
-        margin: 0;
-        &-legs {
-          width: 288px;
-          height: 395px;
-          top: -25px;
-          left: 4%;
-        }
-      }
-
-      .description {
-        margin: 0;
-        .description__title {
-          margin: 0 auto;
-          text-align: center;
-        }
-
-        &__list {
-          .description__item {
-            justify-content: space-evenly;
-            width: auto;
-            &-text {
-              flex-basis: 210px;
-              font-size: 15px;
-
-              .text-underline-orange::after {
-                width: 67px;
-              }
-              .text-underline-green::after {
-                width: 34px;
-              }
-            }
-          }
-        }
-      }
-
-      .form {
-        width: 100%;
-        height: auto;
-        padding: 0;
-        &__price {
-          width: 75%;
-        }
-        &__free {
-          background: #e9f1fa;
-        }
-        &__input {
-          width: 90%;
-        }
-
-        &__arrow-img {
-          right: -4px;
-        }
-        &__discount {
-          padding-bottom: 65px;
-        }
-        &__footer {
-          position: absolute;
-          bottom: 0;
-          width: 100vw;
-          &-info {
-            margin-top: 18px;
-          }
-        }
-      }
-    }
-  }
-
-  .main {
-    &__wrapper {
-      width: 100vw;
-      align-content: center;
-      .brand-icon {
-        margin-top: 30px;
-      }
-    }
-    &__about {
-      text-align: center;
-      &-title-lg {
-        font-size: 36px;
-      }
-      &-block {
-        flex-direction: column;
-        align-items: center;
-
-        .block__item {
-          padding: 0 5px 0;
-          margin-bottom: 45px;
-          width: 300px;
-
-          .item__example {
-            img {
-              width: 50%;
-            }
-          }
-          .item__example::after {
-            right: 140px;
-          }
-        }
-      }
-      &-statistics {
-        margin: 0 10px;
-        padding: 30px 5px;
-        width: 300px;
-      }
-      &-statistics::after {
-        left: 20%;
-      }
-    }
-
-    &__info1 {
-      display: block;
-      position: relative;
-      &-img-top {
-        position: absolute;
-      }
-      .brand-icon {
-        z-index: 1;
-        margin-top: 45px;
-      }
-      &-block {
-        flex-direction: column;
-        align-items: center;
-        .block__item {
-          width: 300px;
-          padding: 70px 10px 30px 10px;
-        }
-        .block__item::after {
-          left: 100px;
-        }
-      }
-      &-statistics {
-        width: 300px;
-        padding: 34px 10px 27px;
-        margin: 0 auto 50px;
-      }
-      &-statistics::after,
-      &-statistics::before {
-        left: 65px;
-      }
-      &-statistics::before {
-        background-color: #f3fafb;
-      }
-    }
-
-    &__why {
-      .position-img {
-        width: auto;
-      }
-
-      .brand-icon-single {
-        margin-top: 15px;
-      }
-      &-title {
-        &-lg {
-          font-size: 36px;
-        }
-        &-sm {
-          font-size: 21px;
-        }
-      }
-      &-block {
-        .block__item {
-          width: 300px;
-          padding: 85px 10px 31px;
-          margin: 35px auto 32px;
-        }
-        .block__item::after,
-        .block__item::before {
-          left: 96px;
-        }
-      }
-
-      &__color-wrapper {
-        margin: auto;
-        width: 90vw;
-      }
-    }
-  }
-
-  .footer {
-    .main__wrapper {
-      .brand-icon {
-        margin-top: 0;
-      }
-    }
-
-    &__img-wave-bottom {
-      top: -150px;
-      left: 0;
-      width: auto;
-    }
-    &-title {
-      &-lg {
-        font-size: 36px;
-        width: 90vw;
-        margin: auto;
-      }
-    }
-    &__block-images {
-      img {
-        width: 85vw;
-        margin-bottom: 30px;
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 501px) and (max-width: 1170px) {
-  .wrapper-bg::after {
-    top: 600px;
-
-    left: 0px;
-    width: auto;
-  }
-  .wrapper-bg::before {
-    top: 430px;
-
-    left: 0px;
-    width: auto;
-  }
-  .header {
-    &__info {
-      &-img {
-        img {
-          width: auto;
-          height: 500px;
-        }
-      }
-      .header__brand {
-        border: 3px solid red;
-        width: 80vw;
-        height: auto;
-        text-align: center;
-        z-index: 1;
-      }
-      .header__brand::before {
-        position: relative;
-        top: -25px;
-        width: 500px;
-        height: 700px;
-        background: url(../img/header/pack-images-full.png) no-repeat top -20px center;
-        background-size: 500px 700px;
-        z-index: 1;
-      }
-      .header__list {
-        flex-direction: row;
-        width: 90vw;
-        justify-content: space-around;
-      }
-    }
-    &__content {
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-
-      .description {
-        max-width: 500px;
-        &__title {
-          width: auto;
-        }
-        &__list {
-          .description__item {
-            width: auto;
-            justify-content: space-around;
-            &-text {
-              flex-basis: 370px;
-            }
-          }
-        }
-      }
-
-      .form {
-        width: 450px;
-        z-index: 1;
-
-        &__arrow-img {
-          right: 10px;
-        }
-
-        &__price {
-          width: inherit;
-          justify-content: space-evenly;
-          letter-spacing: 5px;
-        }
-
-        &__input {
-          width: 360px;
-        }
-        &__footer {
-          width: 450px;
-        }
-      }
-    }
-  }
-
-  .main__info1 {
-    justify-content: space-evenly;
-    &-block {
-      .block__item {
-        height: 650px;
-      }
-    }
-    &-statistics {
-      width: 500px;
-    }
-    &-statistics::after,
-    &-statistics::before {
-      left: 165px;
-    }
-  }
-
-  main {
-    .main__about-block,
-    .main__info1-block,
-    .main__why-block {
-      flex-direction: row;
-      justify-content: space-evenly;
-    }
-  }
-}
-
-@media screen and (min-width: 1171px) {
-}

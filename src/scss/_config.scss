@@ -12,38 +12,15 @@ $background-opacity: 0.5;
 
 /* Variables end */
 
-// @mixin background {
-//   @if $show-background-image {
-//     background: linear-gradient(
-//       110deg,
-//       rgba($secondary-color, $background-opacity) 0%,
-//       rgba($secondary-color, 0.95) 50%,
-//       rgba($secondary-color, 1) 100%
-//     );
-//   }
-// }
-
 // Media Query Mixins
 @mixin mediaSm {
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 320px) and (max-width: 1170px) {
     @content;
   }
 }
 
 @mixin mediaMd {
-  @media screen and (max-width: 768px) {
-    @content;
-  }
-}
-
-@mixin mediaLg {
-  @media screen and (min-width: 769px) and (max-width: 1170px) {
-    @content;
-  }
-}
-
-@mixin mediaXl {
-  @media screen and (min-width: 1171px) {
+  @media screen and (min-width: 501px) and (max-width: 1170px) {
     @content;
   }
 }
