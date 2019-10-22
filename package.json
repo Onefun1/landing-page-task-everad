@@ -1,6 +1,6 @@
 {
   "name": "landing-page-task-everad",
-  "homepage": "https://github.com/Onefun1/landing-page-task-everad#readme",
+  "homepage": "https://onefun1.github.io/landing-page-task-everad/",
   "version": "1.0.0",
   "description": "MMA",
   "main": "index.js",
@@ -20,6 +20,21 @@
     "babel-preset-es2015": "^6.24.1",
     "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
-    "sass": "^1.22.10"
+    "sass": "^1.22.10",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "gulp-cache": "^1.1.3",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-imagemin": "^6.1.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglifyjs": "^0.6.2",
+    "imagemin-pngquant": "^8.0.0"
   }
 }
