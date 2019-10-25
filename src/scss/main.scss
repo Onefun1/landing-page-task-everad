@@ -423,10 +423,15 @@ body {
       .button {
         margin-top: 15px;
         border-radius: 32px;
-        &:hover {
-          color: $orange-color;
+        &:hover,
+        &:focus {
+          color: red;
           box-shadow: 0 0 10px $green-color;
           @include ease;
+        }
+
+        &:active {
+          color: $orange-color;
         }
         &__title:hover {
           border: 2px solid rgba($green-color, 0.4);
@@ -518,10 +523,8 @@ main {
 
 .main__about,
 .main__info1,
-footer {
-  display: flex;
-  flex-direction: column;
-
+footer,
+.header__brand {
   .brand-icon {
     width: 92px;
     height: 65px;
@@ -532,15 +535,27 @@ footer {
       width: 60px;
       height: 60px;
       animation: rotation 8s infinite linear;
+      &:hover {
+        animation: rotation 2s reverse infinite linear;
+      }
     }
     &_small {
       width: 32px;
       height: 32px;
       align-self: flex-end;
       animation: rotation 8s infinite reverse linear;
+      &:hover {
+        animation: rotation 2s infinite linear;
+      }
     }
   }
+}
 
+.main__about,
+.main__info1,
+footer {
+  display: flex;
+  flex-direction: column;
   &-title {
     text-align: center;
     &-lg {
@@ -736,9 +751,15 @@ footer {
       text-align: center;
       position: relative;
       border-radius: 10px;
+      @include ease;
       &:hover {
         top: -2px;
         box-shadow: 0 5px 10px $green-color;
+
+        &::after {
+          @include ease;
+          transform: rotate(30deg);
+        }
       }
 
       &::before {
@@ -882,6 +903,9 @@ footer {
     margin-top: 65px;
     z-index: 1;
     animation: rotation 8s infinite linear;
+    &:hover {
+      animation: rotation 2s infinite reverse linear;
+    }
   }
 
   &-title {
@@ -898,6 +922,12 @@ footer {
       position: relative;
       .colored {
         color: #fa4f01;
+      }
+
+      &:hover {
+        .colored {
+          text-decoration: underline $green-color;
+        }
       }
     }
 
@@ -927,7 +957,7 @@ footer {
 
       &:hover {
         box-shadow: 0 5px 10px $lite-red-color;
-        top: -2px;
+        top: -4px;
         transition: 0.3s;
         &::after {
           height: 110px;
@@ -973,23 +1003,25 @@ footer {
     .block__item::after {
       position: absolute;
       content: '';
-      width: 104px;
-      height: 104px;
+      width: 106px;
+      height: 103px;
       border-radius: 50%;
-      top: -70px;
+      top: -72px;
       left: 130px;
     }
-    .item:hover &-first::after {
-      top: -90px;
+
+    .item-third {
+      border: 4px solid #62bd1f;
     }
 
-    .item-third,
     .item-third::before {
       border: 4px solid #62bd1f;
+      border-top: 6px solid #fff;
     }
 
     .item-third:hover {
       box-shadow: 0 5px 10px #62bd1f;
+      @include ease;
 
       ::after {
         top: 0;
@@ -1001,6 +1033,7 @@ footer {
         background: #fff url(../img/main/cream-pic.png) no-repeat center center;
       }
       &-second::after {
+        top: -80px;
         background: #fff url(../img/main/natural-methods-pic.png) no-repeat
           center center;
       }
@@ -1086,6 +1119,11 @@ footer {
     justify-content: center;
     &-images {
       padding: 29px 18px 0 0;
+
+      &:hover {
+        @include ease;
+        transform: scale(1.05);
+      }
     }
     &-content {
       .content__item {
@@ -1095,10 +1133,19 @@ footer {
         justify-content: center;
         align-items: center;
 
+        &-text::before {
+          transition: width 2s;
+        }
+
         &:hover {
+          transition: width 2s;
           .content__item-pic {
             border: 15px solid $lite-red-color;
             @include ease;
+          }
+          .content__item-text::before {
+            transition: width 2s;
+            width: 100%;
           }
         }
 
