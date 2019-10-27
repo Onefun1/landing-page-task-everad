@@ -4,11 +4,11 @@
   .wrapper-bg {
     position: relative;
     background: linear-gradient(
-      110deg,
-      rgba($secondary-color, $background-opacity) 0%,
-      rgba($secondary-color, 0.95) 50%,
-      rgba($secondary-color, 1) 60%,
-      rgba($secondary-color, 1) 100%
+      -90deg,
+      rgba($secondary-color, 0) 13%,
+      rgba($secondary-color, 0.8) 20%,
+      rgba($secondary-color, 0.8) 80%,
+      rgba($secondary-color, 0) 86%
     );
 
     .img-wave-top {
@@ -37,8 +37,10 @@
   .header {
     left: 0;
     &__info {
-      padding-top: 0;
       flex-direction: column;
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
 
       &-img {
         top: 0;
@@ -53,21 +55,25 @@
       .header__brand {
         padding-right: 0px;
         display: block;
-        &-icon {
-          width: 100px;
-        }
+        text-align: center;
+
         &-name {
           font-size: 36px;
+          margin-left: 0;
+        }
+
+        .brand-icon {
+          margin: 0 auto;
         }
       }
       .header__brand::before {
-        content: "";
+        content: '';
         display: block;
         top: -10px;
         margin: 0 auto;
         width: 288px;
         height: 352px;
-        background: url(../img/header/pack-images-full.png) no-repeat top -20px center;
+        background: url(../img/header/smart-obj-legs.png) no-repeat top -1px center;
         background-size: 288px 352px;
       }
     }
@@ -84,6 +90,7 @@
       }
     }
     &__content {
+      justify-content: center;
       .block__img {
         display: none;
         position: static;
@@ -101,8 +108,11 @@
       .description {
         margin: 0;
         .description__title {
-          margin: 0 auto;
           text-align: center;
+        }
+
+        &__title {
+          width: auto;
         }
 
         &__list {
@@ -125,14 +135,14 @@
       }
 
       .form {
-        width: 100%;
+        width: 320px;
         height: auto;
         padding: 0;
         &__price {
           width: 75%;
         }
         &__free {
-          background: #e9f1fa;
+          background: #e7eff5;
         }
         &__input {
           width: 90%;
@@ -147,7 +157,7 @@
         &__footer {
           position: absolute;
           bottom: 0;
-          width: 100vw;
+          width: 320px;
           &-info {
             margin-top: 18px;
           }
@@ -191,10 +201,10 @@
       &-statistics {
         margin: 0 10px;
         padding: 30px 10px;
-        width: 500px;
+        width: 300px;
       }
       &-statistics::after {
-        left: 165px;
+        left: 65px;
       }
     }
 
@@ -253,7 +263,7 @@
         .block__item {
           width: 300px;
           padding: 85px 10px 31px;
-          margin: 35px auto 32px;
+          margin: 35px auto 45px;
         }
         .block__item::after,
         .block__item::before {
@@ -302,14 +312,12 @@
 
 @include mediaMd {
   .wrapper-bg::after {
-    top: 600px;
-
+    top: 580px;
     left: 0px;
     width: auto;
   }
   .wrapper-bg::before {
-    top: 430px;
-
+    top: 415px;
     left: 0px;
     width: auto;
   }
@@ -332,7 +340,8 @@
         top: -25px;
         width: 500px;
         height: 700px;
-        background: url(../img/header/pack-images-full.png) no-repeat top -20px center;
+        background: url(../img/header/smart-obj-legs.png) no-repeat top 10px
+          center;
         background-size: 500px 700px;
         z-index: 1;
       }
@@ -394,6 +403,10 @@
         height: 650px;
       }
     }
+  }
+
+  .main__about,
+  .main__info1 {
     &-statistics {
       width: 500px;
     }
