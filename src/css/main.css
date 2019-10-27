@@ -1236,6 +1236,7 @@ footer {
 .main__about-statistics {
   padding: 47px 89px 41px 92px;
   border: 3px solid #f4d3bb;
+  border-radius: 10px;
   position: relative; }
   .main__about-statistics-text {
     font-size: 22px;
@@ -1298,7 +1299,7 @@ footer {
       -webkit-box-shadow: 0 0 15px rgba(37, 83, 129, 0.08);
               box-shadow: 0 0 15px rgba(37, 83, 129, 0.08);
       background-color: #fff;
-      padding: 70px 42px 61px 42px;
+      padding: 70px 18px 42px;
       text-align: center;
       position: relative;
       border-radius: 10px;
@@ -1383,6 +1384,7 @@ footer {
   .main__info1-statistics {
     padding: 34px 94px 27px 81px;
     border: 3px solid #f4d3bb;
+    border-radius: 10px;
     position: relative;
     margin-bottom: 89px; }
     .main__info1-statistics:hover span .text-bold {
@@ -1482,7 +1484,7 @@ footer {
       border: 4px solid #f64d01;
       border-radius: 10px;
       text-align: center;
-      padding: 85px 31px 36px 31px;
+      padding: 85px 20px 31px;
       margin-top: 35px;
       margin-bottom: 32px; }
       .main__why-block .block__item:hover {
@@ -1557,7 +1559,9 @@ footer {
     background: -webkit-gradient(linear, left top, right top, from(#f64d01), to(#62bd1f));
     background: -o-linear-gradient(left, #f64d01, #62bd1f);
     background: linear-gradient(to right, #f64d01, #62bd1f);
-    border-radius: 10px; }
+    border-radius: 10px;
+    width: 868px;
+    margin: auto; }
     .main__why__color-wrapper .main__why-meaning {
       padding: 33px 30px 31px 25px;
       background-color: #fff;
@@ -1569,6 +1573,9 @@ footer {
         line-height: 26.52px; }
         .main__why__color-wrapper .main__why-meaning-text .colored {
           color: #f64d01; }
+        .main__why__color-wrapper .main__why-meaning-text:hover .colored {
+          -webkit-text-decoration: underline #a7c93d;
+                  text-decoration: underline #a7c93d; }
 
 /* MAIN end*/
 /* FOOTER start*/
