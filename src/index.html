@@ -6,8 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<link rel="shortcut icon" href="./img/header/single-icon.png" type="image/x-icon" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" href="./css/main.css" />
-	<script src="./js/main.js" defer></script>
+	<script src="./js/main/main.js" defer></script>
 	<title>Landing page</title>
 </head>
 
@@ -17,6 +18,14 @@
 	<div class="wrapper wrapper-bg">
 		<div class="header__wrapper">
 			<header id="bg-img" class="header">
+					<div id='modal' class="container__modal display-none">
+							<div class="modal">
+								<span class="modal__close-button">&#10060;</span>
+									<h2 class="modal__title modal__title-lg"></h2>
+									<h4 class="modal__title-sm"></h4>
+									<div class="modal__confirm-button">Хорошо</div>
+							</div>
+						</div>
 				<div class="header__info">
 					<div class="header__info-img">
 						<img class='info-img' src="./img/header/header-main-img.png" alt="header main image">
@@ -106,14 +115,14 @@
 								<h4 class="new-price-sm">
 									новая цена
 								</h4>
-								<h2 class="new-price-lg">
+								<h2 class="new-price-lg animated infinite pulse">
 									459 &#8381;
 								</h2>
 							</div>
 							<img class="form__arrow-img" src="./img/header/form-arrow-icon.png" alt="form arrow">
 						</div>
-						<input type="text" class="form__input form__input-name" required placeholder="Имя">
-						<input type="tel" class="form__input form__input-tel" required placeholder="Телефон">
+						<input type="text" class="form__input form__input-name" minlength="3" maxlength="15" required placeholder="Имя">
+						<input type="tel" inputmode="tel" pattern="[0-9]{15}" class="form__input form__input-tel" maxlength="15" required placeholder="Телефон">
 						<div class="form__input-button button">
 							<div class="button__title">
 								<h2 class="button__title-lg">
@@ -387,6 +396,7 @@
 			</div>
 		</footer>
 	</div>
+	
 	</div>
 
 </body>

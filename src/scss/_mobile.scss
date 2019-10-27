@@ -36,6 +36,14 @@
 
   .header {
     left: 0;
+
+    .container__modal {
+      .modal {
+        width: 95vw;
+        height: 320px;
+        text-align: center;
+      }
+    }
     &__info {
       flex-direction: column;
       padding-top: 0;
@@ -322,6 +330,12 @@
     width: auto;
   }
   .header {
+    .container__modal {
+      .modal {
+        width: 70vw;
+      }
+    }
+
     &__info {
       &-img {
         img {

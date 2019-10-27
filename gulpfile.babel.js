@@ -12,6 +12,7 @@ const gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   pngquant = require('imagemin-pngquant'),
   cache = require('gulp-cache');
+clean = require('gulp-clean');
 
 gulp.task('sass', function() {
   return (
@@ -41,28 +42,28 @@ gulp.task('sass', function() {
 //   })
 // );
 
-gulp.task('scripts', () =>
-  gulp
-    .src('src/**/*.js')
-    .pipe(sourcemaps.init())
-    .pipe(
-      babel({
-        presets: ['@babel/preset-env']
-      })
-    )
-    .pipe(uglify())
-    .pipe(concat('main.js'))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('src/js/'))
-    .pipe(browserSync.reload({ stream: true }))
-);
+gulp.task('clean-scripts', function() {
+  return gulp.src('app/tmp/*.js', { read: false }).pipe(clean());
+});
 
-// gulp.task("minify", function() {
-//   gulp
-//     .src("./dist/main.js")
-//     .pipe(uglify())
-//     .pipe(gulp.dest("./dist/js/"));
-// });
+gulp.task(
+  'scripts',
+  gulp.series('clean-scripts', () =>
+    gulp
+      .src('src/js/app.js')
+      .pipe(sourcemaps.init())
+      .pipe(
+        babel({
+          presets: ['@babel/preset-env']
+        })
+      )
+      .pipe(uglify())
+      .pipe(concat('main.js'))
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('src/js/main/'))
+      .pipe(browserSync.reload({ stream: true }))
+  )
+);
 
 gulp.task('clean', async function() {
   return del.sync('dist');
@@ -111,8 +112,8 @@ gulp.task('server', function() {
 
 gulp.task('watch', function() {
   gulp.watch('src/scss/**/*.*', gulp.series('sass'));
-  gulp.watch('src/*.html', browserSync.reload);
   gulp.watch('src/js/app.js', gulp.series('scripts'));
+  gulp.watch('src/*.html', browserSync.reload);
 });
 
 gulp.task('dev', gulp.parallel('server', 'watch'));
