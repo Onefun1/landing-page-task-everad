@@ -1985,7 +1985,8 @@ footer {
               align-items: center; }
       .main__info1-block .block__item {
         width: 300px;
-        padding: 70px 10px 30px 10px; }
+        padding: 70px 10px 30px 10px;
+        margin-bottom: 65px; }
       .main__info1-block .block__item::after {
         left: 100px; }
     .main__info1-statistics {
