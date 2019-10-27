@@ -522,7 +522,25 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #fff; }
+  background-color: #fff;
+  /* Up */ }
+  body::-webkit-scrollbar {
+    width: 25px; }
+  body::-webkit-scrollbar-track {
+    background: #ecf4fb; }
+  body::-webkit-scrollbar-thumb {
+    background: #a7c93d;
+    -webkit-transition: ease all 0.5s;
+    -o-transition: ease all 0.5s;
+    transition: ease all 0.5s;
+    border-radius: 15px; }
+  body::-webkit-scrollbar-thumb:hover {
+    background: rgba(167, 201, 61, 0.8);
+    border-radius: 15px; }
+  body::-webkit-scrollbar-button:single-button:vertical:decrement, body::-webkit-scrollbar-button:single-button:vertical:increment {
+    width: 100%;
+    height: 30px;
+    background: #ecf4fb url(../img/header/single-small-icon.png) no-repeat center center; }
 
 .shadow {
   max-width: 2420px;
@@ -929,6 +947,7 @@ body {
         margin-top: 15px;
         border-radius: 32px; }
         .header__content .form .button:hover, .header__content .form .button:focus {
+          cursor: pointer;
           color: red;
           -webkit-box-shadow: 0 0 10px #a7c93d;
                   box-shadow: 0 0 10px #a7c93d;

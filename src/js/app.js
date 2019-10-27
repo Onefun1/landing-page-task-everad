@@ -2,19 +2,19 @@
   let form = document.querySelector('.form');
   const button = document.querySelector('.button');
 
-  function animateCSS(element, animationName, callback) {
-    const node = document.querySelector(element);
-    node.classList.add('animated', animationName);
+  // function animateCSS(element, animationName, callback) {
+  //   const node = document.querySelector(element);
+  //   node.classList.add('animated', animationName);
 
-    function handleAnimationEnd() {
-      node.classList.remove('animated', animationName);
-      node.removeEventListener('animationend', handleAnimationEnd);
+  //   function handleAnimationEnd() {
+  //     node.classList.remove('animated', animationName);
+  //     node.removeEventListener('animationend', handleAnimationEnd);
 
-      if (typeof callback === 'function') callback();
-    }
+  //     if (typeof callback === 'function') callback();
+  //   }
 
-    node.addEventListener('animationend', handleAnimationEnd);
-  }
+  //   node.addEventListener('animationend', handleAnimationEnd);
+  // }
 
   function ready() {
     form.classList.remove('hide');
