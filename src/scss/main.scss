@@ -34,14 +34,9 @@ body {
     border-radius: 15px;
   }
 
-  &::-webkit-scrollbar-button:single-button {
-  }
-  /* Up */
-  &::-webkit-scrollbar-button:single-button:vertical:decrement,
-  &::-webkit-scrollbar-button:single-button:vertical:increment {
+  &::-webkit-scrollbar-button {
     width: 100%;
     height: 30px;
-
     background: $secondary-color url(../img/header/single-small-icon.png)
       no-repeat center center;
   }

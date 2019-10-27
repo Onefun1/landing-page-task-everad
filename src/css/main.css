@@ -522,8 +522,7 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #fff;
-  /* Up */ }
+  background-color: #fff; }
   body::-webkit-scrollbar {
     width: 25px; }
   body::-webkit-scrollbar-track {
@@ -537,7 +536,7 @@ body {
   body::-webkit-scrollbar-thumb:hover {
     background: rgba(167, 201, 61, 0.8);
     border-radius: 15px; }
-  body::-webkit-scrollbar-button:single-button:vertical:decrement, body::-webkit-scrollbar-button:single-button:vertical:increment {
+  body::-webkit-scrollbar-button {
     width: 100%;
     height: 30px;
     background: #ecf4fb url(../img/header/single-small-icon.png) no-repeat center center; }
