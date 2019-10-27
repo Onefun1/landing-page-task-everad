@@ -46,23 +46,20 @@ gulp.task('clean-scripts', function() {
   return gulp.src('app/tmp/*.js', { read: false }).pipe(clean());
 });
 
-gulp.task(
-  'scripts',
-  gulp.series('clean-scripts', () =>
-    gulp
-      .src('src/js/app.js')
-      .pipe(sourcemaps.init())
-      .pipe(
-        babel({
-          presets: ['@babel/preset-env']
-        })
-      )
-      .pipe(uglify())
-      .pipe(concat('main.js'))
-      .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('src/js/main/'))
-      .pipe(browserSync.reload({ stream: true }))
-  )
+gulp.task('scripts', () =>
+  gulp
+    .src('src/js/app.js')
+    .pipe(sourcemaps.init())
+    .pipe(
+      babel({
+        presets: ['@babel/preset-env']
+      })
+    )
+    .pipe(uglify())
+    .pipe(concat('main.js'))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('src/js/main/'))
+    .pipe(browserSync.reload({ stream: true }))
 );
 
 gulp.task('clean', async function() {
@@ -93,7 +90,7 @@ gulp.task('prebuild', async function() {
 
   gulp.src('src/fonts/**/*').pipe(gulp.dest('dist/fonts'));
 
-  gulp.src('src/js/main.js').pipe(gulp.dest('dist/js'));
+  gulp.src('src/js/main/main.js').pipe(gulp.dest('dist/js'));
 
   gulp.src('src/*.html').pipe(gulp.dest('dist'));
 });
@@ -112,7 +109,7 @@ gulp.task('server', function() {
 
 gulp.task('watch', function() {
   gulp.watch('src/scss/**/*.*', gulp.series('sass'));
-  gulp.watch('src/js/app.js', gulp.series('scripts'));
+  gulp.watch('src/js/app.js', gulp.series('clean-scripts', 'scripts'));
   gulp.watch('src/*.html', browserSync.reload);
 });
 
